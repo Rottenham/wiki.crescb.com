@@ -1,0 +1,202 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>阿X正传 - 植圈同人文库</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">返回首页</a></li><li class="chapter-item expanded affix "><a href="index.html">欢迎 👋</a></li><li class="chapter-item expanded affix "><a href="ice.html">生活在冰骨架上</a></li><li class="chapter-item expanded affix "><a href="bluegreen.html">蓝绿冷战</a></li><li class="chapter-item expanded affix "><a href="jokes.html">四年了，你吧让人眼前一亮的超多炮笑话不多啊</a></li><li class="chapter-item expanded affix "><a href="hotgod.html">炽热为什么是神？</a></li><li class="chapter-item expanded affix "><a href="jd12.html">PE.经典十二炮</a></li><li class="chapter-item expanded affix "><a href="hot.html">一张炽热阵图</a></li><li class="chapter-item expanded affix "><a href="lantern.html">绿字为什么是神？</a></li><li class="chapter-item expanded affix "><a href="hometown.html">灯笼尧帝之事</a></li><li class="chapter-item expanded affix "><a href="eat.html">我吃下杯杯的最后一块肝脏时，少年乙刚好回来</a></li><li class="chapter-item expanded affix "><a href="shmoby.html">雪漠北为什么是神</a></li><li class="chapter-item expanded affix "><a href="ax.html" class="active">阿X正传</a></li><li class="chapter-item expanded affix "><a href="mental.html">回B站三天，雪漠北治好了我的精神内耗</a></li><li class="chapter-item expanded affix "><a href="hotible.html">炽热语录</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">植圈同人文库</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="阿x正传"><a class="header" href="#阿x正传">阿X正传</a></h1>
+<blockquote>
+<p>作者：二氧化硫酸钙（<a href="https://www.bilibili.com/read/cv17741440">🔗bilibili</a>）</p>
+<p>收录日期：2022-08-05</p>
+</blockquote>
+<h2 id="第一章-序"><a class="header" href="#第一章-序">第一章 序</a></h2>
+<p>我要给阿X做正传，已经不止一两年了。但一面要做，一面又往回想，这足见我不是一个“立言”的人，因为从来不朽之笔，须传不朽之人，于是人以文传，文以人传——究竟谁靠谁传，渐渐的不甚了然起来，而终于归接到传阿X，仿佛思想里有鬼似的。</p>
+<p>我不知道阿X的名字怎么写的，他活着的时候，人们都叫他阿Xue，死了以后，便没有一个人再叫阿Xue了，那里还会有“着之竹帛”的事。若论“着之竹帛”，这篇文章要算第一次，所以先遇着了这第一个难关。我曾仔细想：阿Xue，阿雪还是阿屑呢？而他既没有号——也许有号，只是没有人知道他，——又未尝散过阵型征文的帖子：写作阿屑，是武断的。又倘使他有一位老兄或令弟叫阿鉴，那一定是阿屑了；而他又只是一个人：写作阿屑，也没有佐证的。其余音Quei的偏僻字样，更加凑不上了。先前，我也曾问过蓝太爷的徒弟宫崎雪慧，谁料博雅如此公，竟也茫然，但据结论说，是因为零度办了《嗯》提倡洋字，所以国粹沦亡，无可查考了。生怕注音字母还未通行，只好用了“洋字”，照英国流行的拼法写他为阿Xue，略作阿X。这近于盲从《嗯》，自己也很抱歉，但雪雪尚且不知，我还有什么好办法呢。</p>
+<h2 id="第二章-优胜记略"><a class="header" href="#第二章-优胜记略">第二章 优胜记略</a></h2>
+<p>阿X不独是姓名籍贯有些渺茫，连他先前的&quot;行状&quot;也渺茫。因为植吧的人们之于阿X，只要他帮忙，只拿他玩笑，从来没有留心他的&quot;行状&quot;的。而阿X自己也不说，独有和别人口角的时候，间或瞪着眼睛道：</p>
+<p>&quot;我先前的无炮——比你强的多啦！你算是什么东西！&quot;</p>
+<p>阿X没有家，住在植吧的无炮区里；也没有固定的阵型，只给人家做探索阵，偷菜便偷菜，脸过便脸过，嘴硬便嘴硬。打阵略长久时，他也或住在临时主人蓝绿的家里，但一完就走了。所以，人们忙碌的时候，也还记起阿X来，然而记起的是97脸无，并不是&quot;行状&quot;；一闲空，连阿X都早忘却，更不必说&quot;行状&quot;了。只是有一回，有一个蓝字颂扬说：&quot;阿X真能做！&quot;这时阿X赤着膊，懒洋洋的瘦伶仃的正在他面前，别人也摸不着这话是真心还是讥笑，然而阿X很喜欢。</p>
+<p>阿X又很自尊，所有植吧的吧友，全不在他眼神里，甚而至于对于两位&quot;仙侠&quot; 也有以为不值一笑的神情。夫仙侠者，将来恐怕要变真神者也；绿太爷蓝太爷大受吧友的尊敬，除会装逼之外，就因为都是造神的始祖，而阿X在精神上独不表格外的崇奉，他想：我的阵型会强得多啦！</p>
+<p>阿X&quot;先前阔&quot;，见识高，而且&quot;真能做&quot;，本来几乎是一个&quot;完人&quot;了，但可惜他造阵上还有一些缺点。最恼人的是在他pe无伤上，颇有几处不知于何时的巨伤。这虽然也在他身上，而看阿X的意思，倒也似乎以为不足贵的，因为他讳说&quot;伪&quot;以及一切近于&quot;伪&quot;的音，后来推而广之，&quot;假&quot;也讳，&quot;脸&quot;也讳，再后来，连&quot;最稳定&quot;都讳了。一犯讳，不问有心与无心，阿X便全疤通红的发起怒来，估量了对手，口讷的他便骂，气力小的他便打；然而不知怎么一回事，总还是阿X吃亏的时候多。于是他渐渐的变换了方针，大抵改为怒目而视了。</p>
+<p>谁知道阿X采用怒目主义之后，植吧的闲人们便愈喜欢玩笑他。一见面，他们便假作吃惊的说：</p>
+<p>     “哙，他急了他急了。” </p>
+<p>     &quot;原来有核聚变在这里！&quot;他们并不怕。</p>
+<p>阿X没有法，只得另外想出报复的话来：</p>
+<p>&quot;你还不配……&quot;这时候，又仿佛在他头上的是一种高尚的光容的假阵，并非平常的假阵了；但上文说过，阿X是有见识的，他立刻知道和&quot;犯忌&quot;有点抵触，便不再往底下说。</p>
+<p>闲人还不完，只撩他，于是终而至于打。阿X在形式上打败了，被人揪住黄辫子，在壁上碰了四五个响头，闲人这才心满意足的得胜的走了，阿X站了一刻，心里想，&quot;我总算被儿子打了，现在的世界真不像样……&quot;于是也心满意足的得胜的走了。</p>
+<p>阿X想在心里的，后来每每说出口来，所以凡是和阿X玩笑的人们，几乎全知道他有这一种精神上的胜利法，此后每逢揪住他搞排名的时候，人就先一着对他说：</p>
+<p>&quot;阿X，这不是儿子打老子，是人打畜生。自己说：人打畜生！&quot;</p>
+<p>阿X两只手都捏住了自己的排名，歪着头，说道：</p>
+<p>&quot;打谔虫，好不好？我是谔虫——还不放么？&quot;</p>
+<p>但虽然是谔虫，闲人也并不放，仍旧在就近什么地方给他碰了五六个响头，这才心满意足的得胜的走了，他以为阿X这回可遭了瘟。然而不到十秒钟，阿X也心满意足的得胜的走了，他觉得他是第一个能够自轻自贱的人，除了&quot;自轻自贱&quot;不算外，余下的就是&quot;第一个&quot;。核聚变不也是&quot;第一个&quot;么？&quot;你算是什么东西&quot;呢！？</p>
+<p>阿X以如是等等妙法克服怨敌之后，便愉快的跑到无炮里评点几个技术党，又和尧帝调笑一通，口角一通，又得了胜，愉快的回到B站，放倒头睡着了。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="shmoby.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="mental.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="shmoby.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="mental.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

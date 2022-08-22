@@ -1,0 +1,222 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>波长设定与非定态 - AvZ 键控教程 by 向量cwl</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">返回首页</a></li><li class="chapter-item expanded affix "><a href="../index.html">欢迎 👋</a></li><li class="chapter-item expanded affix "><a href="../catalogue.html">目录</a></li><li class="chapter-item expanded affix "><li class="part-title">基础</li><li class="chapter-item expanded "><a href="../basic/start.html"><strong aria-hidden="true">1.</strong> 起步</a></li><li class="chapter-item expanded "><a href="../basic/namespace.html"><strong aria-hidden="true">2.</strong> 名称空间</a></li><li class="chapter-item expanded "><a href="../basic/multiple_effective.html"><strong aria-hidden="true">3.</strong> 多次生效(挂机函数)</a></li><li class="chapter-item expanded "><a href="../basic/card.html"><strong aria-hidden="true">4.</strong> 卡片操作</a></li><li class="chapter-item expanded "><a href="../basic/time_rule.html"><strong aria-hidden="true">5.</strong> 时间设定</a></li><li class="chapter-item expanded "><a href="../basic/ice_filler.html"><strong aria-hidden="true">6.</strong> 存冰类</a></li><li class="chapter-item expanded "><a href="../basic/ice3_and_shovel.html"><strong aria-hidden="true">7.</strong> 冰三和铲除函数</a></li><li class="chapter-item expanded "><a href="../basic/plant_fixer.html"><strong aria-hidden="true">8.</strong> 修补植物类</a></li><li class="chapter-item expanded "><a href="../basic/pao_operator_1.html"><strong aria-hidden="true">9.</strong> 炮操作类——初步</a></li><li class="chapter-item expanded "><a href="../basic/pao_operator_2.html"><strong aria-hidden="true">10.</strong> 炮操作类——多炮列表</a></li><li class="chapter-item expanded "><a href="../basic/pao_operator_3.html"><strong aria-hidden="true">11.</strong> 炮操作类——铲种</a></li><li class="chapter-item expanded "><a href="../basic/pao_operator_4.html"><strong aria-hidden="true">12.</strong> 炮操作类——炮序模式</a></li><li class="chapter-item expanded "><a href="../basic/pao_operator_5.html"><strong aria-hidden="true">13.</strong> 炮操作类——炮序排布</a></li><li class="chapter-item expanded "><a href="../basic/wave_set.html" class="active"><strong aria-hidden="true">14.</strong> 波长设定与非定态</a></li><li class="chapter-item expanded "><a href="../basic/key_connect.html"><strong aria-hidden="true">15.</strong> 按键绑定</a></li><li class="chapter-item expanded "><a href="../basic/set_zombie.html"><strong aria-hidden="true">16.</strong> 出怪设置与女仆秘籍</a></li><li class="chapter-item expanded "><a href="../basic/advance_pause.html"><strong aria-hidden="true">17.</strong> 高级暂停</a></li><li class="chapter-item expanded "><a href="../basic/skip_tick.html"><strong aria-hidden="true">18.</strong> 跳帧</a></li><li class="chapter-item expanded affix "><li class="part-title">进阶</li><li class="chapter-item expanded "><a href="../advance/time_operate.html"><strong aria-hidden="true">19.</strong> 操作队列</a></li><li class="chapter-item expanded "><a href="../advance/wait_until.html"><strong aria-hidden="true">20.</strong> 阻塞函数</a></li><li class="chapter-item expanded "><a href="../advance/function_attribute.html"><strong aria-hidden="true">21.</strong> 函数属性</a></li><li class="chapter-item expanded "><a href="../advance/insert_operation.html"><strong aria-hidden="true">22.</strong> 动态操作插入</a></li><li class="chapter-item expanded "><a href="../advance/transform_attribute.html"><strong aria-hidden="true">23.</strong> 属性转换</a></li><li class="chapter-item expanded "><a href="../advance/debug.html"><strong aria-hidden="true">24.</strong> 运行调试</a></li><li class="chapter-item expanded "><a href="../advance/smart.html"><strong aria-hidden="true">25.</strong> &quot;智能&quot;操作</a></li><li class="chapter-item expanded "><a href="../advance/iterator.html"><strong aria-hidden="true">26.</strong> 对象过滤迭代器</a></li><li class="chapter-item expanded "><a href="../advance/memory_manage.html"><strong aria-hidden="true">27.</strong> 变量内存管理</a></li><li class="chapter-item expanded "><a href="../advance/extension.html"><strong aria-hidden="true">28.</strong> 插件</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">AvZ 键控教程 by 向量cwl</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!--
+ * @Coding: utf-8
+ * @Author: vector-wlc
+ * @Date: 2021-09-25 19:05:19
+ * @Description: 
+-->
+<h1 id="波长设定与非定态"><a class="header" href="#波长设定与非定态">波长设定与非定态</a></h1>
+<p>在脚本编写过程中，我们时常困扰于僵尸的提前刷新、延迟刷新问题，这些问题一旦发生，视频基本要推倒重来，为了解决这一问题，AvZ 提供了强制控制僵尸刷新函数 <code>SetWavelength</code>。其使用方法如下：</p>
+<pre><code class="language-C++">SetWavelength({
+    {1, 601},
+    {2, 601},
+    {3, 601},
+    {4, 1800},
+    {5, 601},
+    {6, 601},
+    {7, 601},
+    {8, 1800},
+    {10, 601},
+    {11, 601},
+    {12, 601},
+    {13, 1800},
+    {14, 601},
+    {15, 601},
+    {16, 601},
+    {17, 1800},
+    {18, 601},
+});
+</code></pre>
+<p>看完这个参数的填写相必大家也就明白这个函数参数的意义是啥了，对没错，上述语句的意思是将第一波的波长设置为601，将第二波的波长设置为601……，当然我们不必将每一波的波长都设置一遍，例如下面这种调用方法也是可以的</p>
+<pre><code class="language-C++">SetWavelength({
+    {1, 601},
+    {4, 1800},
+    {6, 601},
+});
+</code></pre>
+<p><strong>注意，此函数不能设置第 9 19 20 波的波长，并且设置波长的范围只能为 [601, 2500]，因为此函数不允许游戏最基本的规则被破坏。</strong></p>
+<p>那么设置好相应波的波长后能带给我们什么便利呢？</p>
+<p><strong><code>SetTime</code> 的时间参数可以填写小于 -200 的值</strong></p>
+<p>如果我们设定了第一波的波长，那么第二波的 <code>SetTime</code> 就可以这么填写 <code>SetTime</code>(-400, 2)，因为我们在游戏运行前告诉了 AvZ 这个框架僵尸的刷新时刻点。</p>
+<p>其实有很多人疑惑为什么普通波的时刻点不能小于 -200，原因其实很简单，是由 PvZ 这个游戏的规则决定的，由于僵尸刷新倒计时会发生从某个值到 200cs 的突变，所以通常情况下时刻点的设定是不能小于 -200 的。</p>
+<p><strong>给非定态解的视频录制带来巨大的便利</strong></p>
+<p>我们知道，非定态解在录制视频时是很伤肝的，因为每一种刷新情况的出现是有几率的，但是如果我们使用了设定波长函数，那么僵尸的刷新就会强制和我们设定的波长一样，这样录制视频就会方便非常多。</p>
+<p>总结：设定波长函数是一个通过改写游戏的内存来达到强制控制僵尸刷新的函数，当使用了这个函数，会扩充 <code>SetTime</code> 的时间参数填写范围，并且由于强制控制了僵尸的刷新情况，非定态解可以使用穷举法拆分成多个定态解去处理。</p>
+<p><a href="./pao_operator_5.html">上一篇 炮操作类——炮序排布</a></p>
+<p><a href="../catalogue.html">目录</a></p>
+<p><a href="./key_connect.html">下一篇 按键绑定</a></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../basic/pao_operator_5.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../basic/key_connect.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../basic/pao_operator_5.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../basic/key_connect.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

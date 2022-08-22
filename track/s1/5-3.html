@@ -1,0 +1,222 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>P5节奏与梯子南瓜 - 新轨道读本 by Crescendo</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">返回首页</a></li><li class="chapter-item expanded affix "><a href="../index.html">欢迎 👋</a></li><li class="chapter-item expanded "><a href="../s1/index.html"><strong aria-hidden="true">1.</strong> 初来乍到</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../s1/1.html"><strong aria-hidden="true">1.1.</strong> 认识PVZ世界</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../s1/1-1.html"><strong aria-hidden="true">1.1.1.</strong> 对僵尸的认识</a></li><li class="chapter-item expanded "><a href="../s1/1-2.html"><strong aria-hidden="true">1.1.2.</strong> 对植物的认识</a></li><li class="chapter-item expanded "><a href="../s1/1-3.html"><strong aria-hidden="true">1.1.3.</strong> 对场地的认识</a></li></ol></li><li class="chapter-item expanded "><a href="../s1/2.html"><strong aria-hidden="true">1.2.</strong> 游戏流程</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../s1/2-1.html"><strong aria-hidden="true">1.2.1.</strong> 记录时间</a></li><li class="chapter-item expanded "><a href="../s1/2-2.html"><strong aria-hidden="true">1.2.2.</strong> 无尽的两大阶段</a></li></ol></li><li class="chapter-item expanded "><a href="../s1/3.html"><strong aria-hidden="true">1.3.</strong> 我的第一个阵型</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../s1/3-1.html"><strong aria-hidden="true">1.3.1.</strong> 寻找安全炮位</a></li><li class="chapter-item expanded "><a href="../s1/3-2.html"><strong aria-hidden="true">1.3.2.</strong> 我的第一个阵型：传统八炮</a></li><li class="chapter-item expanded "><a href="../s1/3-3.html"><strong aria-hidden="true">1.3.3.</strong> 八炮的操作方式</a></li></ol></li><li class="chapter-item expanded "><a href="../s1/4.html"><strong aria-hidden="true">1.4.</strong> 用轨道语言描述节奏</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../s1/4-1.html"><strong aria-hidden="true">1.4.1.</strong> 描述操作</a></li><li class="chapter-item expanded "><a href="../s1/4-2.html"><strong aria-hidden="true">1.4.2.</strong> 描述波长</a></li><li class="chapter-item expanded "><a href="../s1/4-3.html"><strong aria-hidden="true">1.4.3.</strong> 给节奏取名</a></li><li class="chapter-item expanded "><a href="../s1/4-4.html"><strong aria-hidden="true">1.4.4.</strong> 小结</a></li></ol></li><li class="chapter-item expanded "><a href="../s1/5.html"><strong aria-hidden="true">1.5.</strong> 更多P系节奏</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../s1/5-1.html"><strong aria-hidden="true">1.5.1.</strong> 僵尸刷新规律</a></li><li class="chapter-item expanded "><a href="../s1/5-2.html"><strong aria-hidden="true">1.5.2.</strong> 区分两种发炮时机</a></li><li class="chapter-item expanded "><a href="../s1/5-3.html" class="active"><strong aria-hidden="true">1.5.3.</strong> P5节奏与梯子南瓜</a></li><li class="chapter-item expanded "><a href="../s1/5-4.html"><strong aria-hidden="true">1.5.4.</strong> P6节奏与冰消珊瑚</a></li></ol></li><li class="chapter-item expanded "><a href="../s1/6.html"><strong aria-hidden="true">1.6.</strong> 用卡片代替炮</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../s1/6-1.html"><strong aria-hidden="true">1.6.1.</strong> 认识灰烬</a></li><li class="chapter-item expanded "><a href="../s1/6-2.html"><strong aria-hidden="true">1.6.2.</strong> 运算量的概念</a></li><li class="chapter-item expanded "><a href="../s1/6-3.html"><strong aria-hidden="true">1.6.3.</strong> 灰烬代奏</a></li><li class="chapter-item expanded "><a href="../s1/6-4.html"><strong aria-hidden="true">1.6.4.</strong> 灰烬代奏的简单用例</a></li><li class="chapter-item expanded "><a href="../s1/6-5.html"><strong aria-hidden="true">1.6.5.</strong> 灰烬代奏的综合用例</a></li></ol></li><li class="chapter-item expanded "><a href="../s1/end.html"><strong aria-hidden="true">1.7.</strong> 总结</a></li></ol></li><li class="chapter-item expanded "><a href="../s2/index.html"><strong aria-hidden="true">2.</strong> 小试牛刀</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../s2/1.html"><strong aria-hidden="true">2.1.</strong> 阵型万花筒</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../s2/1-1.html"><strong aria-hidden="true">2.1.1.</strong> 给僵尸分类</a></li><li class="chapter-item expanded "><a href="../s2/1-2.html"><strong aria-hidden="true">2.1.2.</strong> 给植物分类</a></li><li class="chapter-item expanded "><a href="../s2/1-3.html"><strong aria-hidden="true">2.1.3.</strong> 给阵型分类</a></li></ol></li><li class="chapter-item expanded "><a href="../s2/2.html"><strong aria-hidden="true">2.2.</strong> 不规则节奏</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../s2/2-1.html"><strong aria-hidden="true">2.2.1.</strong> 区分规则节奏和不规则节奏</a></li><li class="chapter-item expanded "><a href="../s2/2-2.html"><strong aria-hidden="true">2.2.2.</strong> IO主导刷新</a></li><li class="chapter-item expanded "><a href="../s2/2-3.html"><strong aria-hidden="true">2.2.3.</strong> 不充分激活</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../s2/2-3-1.html"><strong aria-hidden="true">2.2.3.1.</strong> 炸点后移</a></li><li class="chapter-item expanded "><a href="../s2/2-3-2.html"><strong aria-hidden="true">2.2.3.2.</strong> 只炸半场</a></li></ol></li><li class="chapter-item expanded "><a href="../s2/2-4.html"><strong aria-hidden="true">2.2.4.</strong> 灵活操作</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../s2/2-4-1.html"><strong aria-hidden="true">2.2.4.1.</strong> 减压</a></li><li class="chapter-item expanded "><a href="../s2/2-4-2.html"><strong aria-hidden="true">2.2.4.2.</strong> 自由操作顺序</a></li></ol></li><li class="chapter-item expanded "><a href="../s2/2-5.html"><strong aria-hidden="true">2.2.5.</strong> 小结</a></li></ol></li><li class="chapter-item expanded "><a href="../s2/3.html"><strong aria-hidden="true">2.3.</strong> 轨道语言的盲点</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../s2/3-1.html"><strong aria-hidden="true">2.3.1.</strong> 轨道语言并不灵活</a></li><li class="chapter-item expanded "><a href="../s2/3-2.html"><strong aria-hidden="true">2.3.2.</strong> 如何描述无炮</a></li><li class="chapter-item expanded "><a href="../s2/3-3.html"><strong aria-hidden="true">2.3.3.</strong> 如何描述不规则炮阵</a></li></ol></li><li class="chapter-item expanded "><a href="../s2/4.html"><strong aria-hidden="true">2.4.</strong> 复合运算初探</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../s2/4-1.html"><strong aria-hidden="true">2.4.1.</strong> 不同炮位的名称</a></li><li class="chapter-item expanded "><a href="../s2/4-2.html"><strong aria-hidden="true">2.4.2.</strong> 额外的运算量需求</a></li><li class="chapter-item expanded "><a href="../s2/4-3.html"><strong aria-hidden="true">2.4.3.</strong> PS复合运算</a></li><li class="chapter-item expanded "><a href="../s2/4-4.html"><strong aria-hidden="true">2.4.4.</strong> PD复合运算</a></li><li class="chapter-item expanded "><a href="../s2/4-5.html"><strong aria-hidden="true">2.4.5.</strong> 冰代奏——ICE1</a></li></ol></li><li class="chapter-item expanded "><a href="../s2/5.html"><strong aria-hidden="true">2.5.</strong> 保护鬼位炮</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../s2/5-1.html"><strong aria-hidden="true">2.5.1.</strong> 引言</a></li><li class="chapter-item expanded "><a href="../s2/5-2.html"><strong aria-hidden="true">2.5.2.</strong> 瞬杀</a></li><li class="chapter-item expanded "><a href="../s2/5-3.html"><strong aria-hidden="true">2.5.3.</strong> 尾炸</a></li><li class="chapter-item expanded "><a href="../s2/5-4.html"><strong aria-hidden="true">2.5.4.</strong> 空炸</a></li><li class="chapter-item expanded "><a href="../s2/5-5.html"><strong aria-hidden="true">2.5.5.</strong> 冰代奏——ICE2</a></li></ol></li><li class="chapter-item expanded "><a href="../s2/end.html"><strong aria-hidden="true">2.6.</strong> 总结</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">新轨道读本 by Crescendo</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="53-p5节奏与梯子南瓜"><a class="header" href="#53-p5节奏与梯子南瓜">5.3 P5节奏与梯子南瓜</a></h2>
+<p>你还记得P4里“4”是什么意思么？</p>
+<p>没错，“4”是参数。我们当时说，参数描述了节奏的快与慢，参数越高，节奏就越快。</p>
+<p>八炮节奏中，一个约36秒的周期内<strong>处理了4波怪</strong>，故作“P4”。</p>
+<p>如果我们加两门炮，变成十炮，相应地就能加快节奏，从处理4波怪变为<strong>处理5波</strong>。</p>
+<p>请看大屏幕——天台十炮（<a href="https://www.bilibili.com/video/BV1LY411E7ds">操作示范</a>）：</p>
+<p><a href="https://forum.crescb.com/wp-content/uploads/wpforo/attachments/2/290-image.png"><img src="https://forum.crescb.com/wp-content/uploads/wpforo/attachments/2/thumbnail/290-image.png" alt="image" /></a></p>
+<p>Q1：等等！我没数错的话，炮往前推了一格吧？不是说<strong>7列不安全</strong>吗？</p>
+<p>A1：嗯，确实前推了一格，但这倒也不是为了炫技……</p>
+<p>根据游戏设定，屋顶场地的巨人肾虚（大雾），投掷小鬼力气不够，<strong>小鬼会集中落在4~5列</strong>，而非3~4列。这意味着传统八炮那种56列炮是有极大风险会被爆菊的！</p>
+<p>但有一个好消息：<strong>屋顶场地没有矿工和舞王</strong>。大概是矿工需要挖土，舞王召唤伴舞需要从土里召唤，而屋顶的瓦片显然不适合做这些事情（（</p>
+<p>没有矿工，底线炮安全了；没有舞王，67列炮安全了。这就是为啥这十门炮要摆在这个位置。</p>
+<p>Q2：再等等！那<strong>南瓜上的梯子</strong>是什么意思？</p>
+<p><a href="https://forum.crescb.com/wp-content/uploads/wpforo/attachments/2/291-image.png"><img src="https://forum.crescb.com/wp-content/uploads/wpforo/attachments/2/thumbnail/291-image.png" alt="image" /></a></p>
+<p>A2：看着确实很碍眼呢……</p>
+<p>不过，这并不是什么意外哦。这是有意而为之，<strong>故意架的梯子</strong>。</p>
+<p>传统八炮里，小鬼会反复啃食南瓜，我们不得不频繁修补。</p>
+<p>于是天才玩家们想到：既然南瓜老是被啃，<strong>给南瓜架上梯子，不就免疫啃食了？</strong></p>
+<p>听上去这非常不靠谱。南瓜被扶梯僵尸架上梯子后，就失去了阻挡的功能。但实际上，这并不影响曾哥对小鬼进行输出。</p>
+<p><strong>小鬼在爬梯过程中，会被曾哥喷死</strong>，没有威胁：</p>
+<p><a href="https://forum.crescb.com/wp-content/uploads/wpforo/attachments/2/292-image.png"><img src="https://forum.crescb.com/wp-content/uploads/wpforo/attachments/2/thumbnail/292-image.png" alt="image" /></a></p>
+<p>更多关于梯子南瓜的保养知识，以及搭梯方式，请参考<a href="https://www.bilibili.com/video/BV1Bt411F73Z">某路视频讲解</a>。<strong>当你掌握了基础的开局流程后</strong>，如果想跳过开局阶段，尽快在高f测试某个新阵型，可以使用 <a href="https://pvz.tools/toolkit/">PvZ Toolkit</a> 等修改器进行快速布阵与跳关。</p>
+<hr />
+<h3 id="bonus-tip"><a class="header" href="#bonus-tip">⭐BONUS TIP</a></h3>
+<p>1.0原版中，屋顶的玉米炮有“上界之风”bug，体现为发射底线炮（12列炮、23列炮等）时，炮落点会往上偏，容易漏下行僵尸。</p>
+<hr />
+<p>比如图中这门炮是<strong>发射到3路</strong>的，伤到了4路巨人，却<strong>漏了4路的普僵</strong>：</p>
+<p><a href="https://forum.crescb.com/wp-content/uploads/wpforo/attachments/2/293-image.png"><img src="https://forum.crescb.com/wp-content/uploads/wpforo/attachments/2/thumbnail/293-image.png" alt="image" /></a></p>
+<p>处在平地的炮（比如67列炮）就基本没有这个偏移问题。</p>
+<p>因此，为了确保两门炮能覆盖五行僵尸，我们通常将底线炮与平地炮结合使用，<strong>底线炮炸2路，平地炮炸4路</strong>。</p>
+<hr />
+<h3 id="拓展思考"><a class="header" href="#拓展思考">🤯拓展思考</a></h3>
+<p>为什么底线炮炸2路，平地炮炸4路不会漏任何僵尸？和“平地炮炸2路，底线炮炸5路”的策略相比，有什么区别？</p>
+<hr />
+<p>解释完了天台十炮为什么要这么摆后，是时候回归正题（P5）了……</p>
+<p>天台十炮的完整节奏如下：</p>
+<p><strong>P5：PP | PP | PP | PP | PP (7, 7, 7, 7, 7)</strong></p>
+<p>（节奏名+具体操作+波长）</p>
+<p>玉米炮的精确CD为34.75秒，所以每波7秒，总共5波，5*7 = 35秒，≥34.75，是<strong>足以循环</strong>的。</p>
+<p>实际手操时无需过分精确，可以留一些余地。</p>
+<hr />
+<h3 id="谈一谈对于这个阵型p5节奏比起p4节奏的优势是什么"><a class="header" href="#谈一谈对于这个阵型p5节奏比起p4节奏的优势是什么">💬谈一谈：对于这个阵型，P5节奏比起P4节奏的优势是什么？</a></h3>
+<details>
+<summary>参考答案</summary>
+<br>之所以要摆十炮，打P5节奏，而非保持八炮打P4，是因为炮往前推了一格，如果采用P4节奏，行动速度极快的梯子僵尸有可能啃炮。
+</details>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../s1/5-2.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../s1/5-4.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../s1/5-2.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../s1/5-4.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

@@ -1,0 +1,616 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>新时空贴 - PVZ 时空数据</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">返回首页</a></li><li class="chapter-item expanded affix "><a href="../index.html">欢迎 👋</a></li><li class="chapter-item expanded "><a href="../ts/index.html" class="active"><strong aria-hidden="true">1.</strong> 新时空贴</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">PVZ 时空数据</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="现代遗留问题清算这个世界的时空"><a class="header" href="#现代遗留问题清算这个世界的时空">现代遗留问题清算——这个世界的时空。</a></h1>
+<h2 id="faq"><a class="header" href="#faq">FAQ</a></h2>
+<p>Q：这个一定是正确的吗？</p>
+<p>A：除了造物主，没有什么东西胆敢说自己对世界的认识是绝对正确的吧，除非 it isn't something. 本文只是简单测量结果的等效表达，其必然带有作者的能力和思维的局限性。</p>
+<h2 id="前置说明"><a class="header" href="#前置说明">前置说明</a></h2>
+<ul>
+<li>
+<p>植物/僵尸坐标：以游戏内存值为准。坐标轴原点为1-1格左上角，↓→为正方向。战场可见区左端为<code>x=-40</code>，上端为<code>y=-80</code>。</p>
+</li>
+<li>
+<p>判定体系：以游戏内调试模式为准。</p>
+</li>
+</ul>
+<h2 id="空间体系"><a class="header" href="#空间体系">空间体系</a></h2>
+<blockquote>
+<p>数据类型整数，单位px</p>
+</blockquote>
+<ul>
+<li>场景边界：
+<ul>
+<li>伤害区 -50 ~ 800</li>
+<li>触车 -20 ~ 28</li>
+<li>警戒区 0 ~ 800</li>
+<li>屋外区 -21 ~ +</li>
+</ul>
+</li>
+</ul>
+<table><thead><tr><th style="text-align: center">地形</th><th style="text-align: center">行号</th><th style="text-align: center">僵尸y</th><th style="text-align: center">植物y</th></tr></thead><tbody>
+<tr><td style="text-align: center">前院</td><td style="text-align: center">1</td><td style="text-align: center">50</td><td style="text-align: center">80</td></tr>
+<tr><td style="text-align: center"></td><td style="text-align: center">2</td><td style="text-align: center">150</td><td style="text-align: center">180</td></tr>
+<tr><td style="text-align: center"></td><td style="text-align: center">3</td><td style="text-align: center">250</td><td style="text-align: center">280</td></tr>
+<tr><td style="text-align: center"></td><td style="text-align: center">4</td><td style="text-align: center">350</td><td style="text-align: center">380</td></tr>
+<tr><td style="text-align: center"></td><td style="text-align: center">5</td><td style="text-align: center">450</td><td style="text-align: center">480</td></tr>
+<tr><td style="text-align: center">后院</td><td style="text-align: center">1</td><td style="text-align: center">50</td><td style="text-align: center">80</td></tr>
+<tr><td style="text-align: center"></td><td style="text-align: center">2</td><td style="text-align: center">135</td><td style="text-align: center">165</td></tr>
+<tr><td style="text-align: center"></td><td style="text-align: center">3</td><td style="text-align: center">220</td><td style="text-align: center">250</td></tr>
+<tr><td style="text-align: center"></td><td style="text-align: center">4</td><td style="text-align: center">305</td><td style="text-align: center">335</td></tr>
+<tr><td style="text-align: center"></td><td style="text-align: center">5</td><td style="text-align: center">390</td><td style="text-align: center">420</td></tr>
+<tr><td style="text-align: center"></td><td style="text-align: center">6</td><td style="text-align: center">475</td><td style="text-align: center">505</td></tr>
+<tr><td style="text-align: center">屋顶</td><td style="text-align: center">1</td><td style="text-align: center">40</td><td style="text-align: center">见下</td></tr>
+<tr><td style="text-align: center"></td><td style="text-align: center">2</td><td style="text-align: center">125</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center"></td><td style="text-align: center">3</td><td style="text-align: center">210</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center"></td><td style="text-align: center">4</td><td style="text-align: center">295</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center"></td><td style="text-align: center">5</td><td style="text-align: center">380</td><td style="text-align: center"></td></tr>
+</tbody></table>
+<p>屋顶植物：</p>
+<table><thead><tr><th style="text-align: center">(x,y)</th><th style="text-align: center">1(列)</th><th style="text-align: center">2</th><th style="text-align: center">3</th><th style="text-align: center">4</th><th style="text-align: center">5</th><th style="text-align: center">6</th><th style="text-align: center">7</th><th style="text-align: center">8</th><th style="text-align: center">9</th></tr></thead><tbody>
+<tr><td style="text-align: center">1(行)</td><td style="text-align: center">40,170</td><td style="text-align: center">120,150</td><td style="text-align: center">200,130</td><td style="text-align: center">280,110</td><td style="text-align: center">360,90</td><td style="text-align: center">440,70</td><td style="text-align: center">520,70</td><td style="text-align: center">600,70</td><td style="text-align: center">680,70</td></tr>
+<tr><td style="text-align: center">2</td><td style="text-align: center">40,255</td><td style="text-align: center">120,235</td><td style="text-align: center">200,215</td><td style="text-align: center">280,195</td><td style="text-align: center">360,175</td><td style="text-align: center">440,155</td><td style="text-align: center">520,155</td><td style="text-align: center">600,155</td><td style="text-align: center">680,155</td></tr>
+<tr><td style="text-align: center">3</td><td style="text-align: center">40,340</td><td style="text-align: center">120,320</td><td style="text-align: center">200,300</td><td style="text-align: center">280,280</td><td style="text-align: center">360,260</td><td style="text-align: center">440,240</td><td style="text-align: center">520,240</td><td style="text-align: center">600,240</td><td style="text-align: center">680,240</td></tr>
+<tr><td style="text-align: center">4</td><td style="text-align: center">40,425</td><td style="text-align: center">120,405</td><td style="text-align: center">200,385</td><td style="text-align: center">280,365</td><td style="text-align: center">360,345</td><td style="text-align: center">440,325</td><td style="text-align: center">520,325</td><td style="text-align: center">600,325</td><td style="text-align: center">680,325</td></tr>
+<tr><td style="text-align: center">5</td><td style="text-align: center">40,510</td><td style="text-align: center">120,490</td><td style="text-align: center">200,470</td><td style="text-align: center">280,450</td><td style="text-align: center">360,430</td><td style="text-align: center">440,410</td><td style="text-align: center">520,410</td><td style="text-align: center">600,410</td><td style="text-align: center">680,410</td></tr>
+</tbody></table>
+<h2 id="地形图"><a class="header" href="#地形图">地形图</a></h2>
+<p><img src="./NE.jpg" alt="地形图" /></p>
+<p><img src="./FE.jpg" alt="地形图" /></p>
+<p><img src="./ME.jpg" alt="地形图" /></p>
+<h3 id="地形图注"><a class="header" href="#地形图注">地形图注</a></h3>
+<p>两种线有重合时，重合段用两者颜色相间的线表示；</p>
+<p>白线为坐标轴，x轴向右为正，y轴向下为正；</p>
+<p>紫色和暗品红色为各控制格的边框；</p>
+<p>绿线为可见区的边界；</p>
+<p>右红线为伤害区和警戒区的右界——若僵尸防御域都在其右方则无敌且不被当作目标；</p>
+<p>蓝线为警戒区的左界——若僵尸防御域都在其左方则不被当作目标；
+黄竖线为碰车区的边界；</p>
+<p>左红线为屋外区的左界——若僵尸防御域都在其左方则其进屋；</p>
+<p>黄横线或斜线为僵尸基准轨迹，没有纵向偏移且正常前进的僵尸坐标在其上；</p>
+<p>绿十字为植物基准点，通常植物坐标在那些位置。</p>
+<h2 id="植物模型"><a class="header" href="#植物模型">植物模型</a></h2>
+<h3 id="说明"><a class="header" href="#说明">说明</a></h3>
+<p>统一使用内存坐标系，以植物内存坐标为偏移中心</p>
+<blockquote>
+<p>伸：指“延伸”；例如“左伸X”代表左限向左延伸X</p>
+<p>缩：指“收缩”；例如“右缩X”代表右限向左收缩X</p>
+</blockquote>
+<ul>
+<li>基准参考：前院1-1豌豆射手<code>x=40, y=80</code></li>
+<li>受行作用x（啃碾砸）：
+<ul>
+<li>普通植物<code>+30~+50</code></li>
+<li>高坚果<code>+30~+70</code></li>
+<li>南瓜<code>+20~+80</code></li>
+<li>玉米炮（以炮尾所在格为准）<code>+20~+120</code>
+<ul>
+<li>对于炮头所在格而言为<code>-60~+40</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>受小丑爆炸：<code>x左右各伸20, y=0~+80</code></li>
+<li>玉米炮：
+<ul>
+<li>“准星”即红叉的中心，单位为整数像素，除以80后得到列数
+<ul>
+<li>例如<code>准星x=721</code>的炮，等价于炸<code>9.0125列</code>的炮，等价于<code>AvZ::pao_operator.pao(x, 9.0125)</code></li>
+</ul>
+</li>
+<li>爆炸中心”即实际爆炸的圆心
+<ul>
+<li>非天台场景<code>爆炸中心x=准星x-7, 爆炸中心y=准星同行植物y+40</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>对于r行c列的梯子南瓜，梯子被炮炸飞的条件是<code>r-1≤准星行数≤r+1</code>，且<code>80*c-113≤准星x≤80*c+126</code></li>
+<li>行特种x：（伸缩会叠加）
+<ul>
+<li>土豆触发<code>0~+55</code>
+<ul>
+<li>对正在啃的<code>左右各伸30</code></li>
+<li>对跳后撑杆<code>左缩40*(1+N)</code>，N为比该撑杆编号小的跳后撑杆总数</li>
+</ul>
+</li>
+<li>大嘴花<code>+80~+120</code>
+<ul>
+<li>对正在啃的<code>左右各伸60</code></li>
+<li>对反向矿<code>左缩20</code></li>
+</ul>
+</li>
+<li>窝瓜触发+20~+135
+<ul>
+<li>对正在啃的<code>右伸40</code></li>
+<li>对跳后撑杆、海豚、橄榄、小鬼<code>左伸60</code></li>
+<li>对反向矿、雪人<code>左伸70</code>，正在啃再<code>左伸40</code></li>
+<li><code>窝瓜x-118≤奔跑撑杆x≤窝瓜x-17</code>时触发窝瓜</li>
+</ul>
+</li>
+<li>窝瓜压区跨度<code>43</code>
+<ul>
+<li>对橄榄<code>左右各伸20</code></li>
+</ul>
+</li>
+<li>缠绕海草<code>0~+80</code></li>
+</ul>
+</li>
+<li>行远程开火x：
+<ul>
+<li>普通植物向右<code>+60</code></li>
+<li>裂荚左<code>+16</code></li>
+<li>杨桃左<code>-3</code></li>
+<li>反向双发<code>0</code></li>
+</ul>
+</li>
+<li>行短程：
+<ul>
+<li>小喷/海蘑菇<code>+60~+290</code>开火</li>
+<li>小喷可击中<code>+40~+323</code></li>
+<li>海蘑菇可击中<code>+45~+328</code></li>
+</ul>
+</li>
+<li>行AOE攻击x：
+<ul>
+<li>大喷<code>+60~+400</code></li>
+<li>忧郁菇<code>-80~+160</code></li>
+<li>地刺（王）<code>+20~+50</code></li>
+<li>以上这些是开火区，命中区都左右各缩1</li>
+</ul>
+</li>
+<li>行AOE子弹：
+<ul>
+<li>火豌豆飞溅区跨度<code>100</code>
+<ul>
+<li>飞溅区左端与命中区左端同（命中区跨度<code>30</code>）</li>
+</ul>
+</li>
+<li>西瓜（冰瓜）飞溅区跨度<code>60</code>
+<ul>
+<li>与同行命中区重合</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>圆心：
+<ul>
+<li>樱桃<code>(40,40),半径115</code></li>
+<li>土豆<code>(20,40),半径60</code></li>
+<li>胆小害怕<code>(0,20)半径120</code></li>
+<li>毁灭菇<code>(40,40)半径250</code></li>
+<li>磁铁<code>(0,20)半径270</code>（对正在啃食的<code>半径320</code>）</li>
+<li>猫<code>(40,40)</code></li>
+<li>玉米炮伤害以爆炸中心为圆心，<code>半径115</code>（爆炸中心见前）</li>
+</ul>
+</li>
+<li>其他：
+<ul>
+<li>种植坐标偏移 (x, y)：
+<ul>
+<li>小喷/海蘑菇<code>(-5~+4, -3~+2)</code></li>
+<li>阳光菇<code>(-5~+4, -5~+4)</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>注：圆的判定是<code>(Δx)^2+(Δy)^2&lt;=R^2</code>，因此相应的圆不是一般画图软件出来的圆，判定圆图形如下：</p>
+<p><img src="./%E5%9C%86.jpg" alt="圆" /></p>
+<h2 id="僵尸模型"><a class="header" href="#僵尸模型">僵尸模型</a></h2>
+<h3 id="说明-1"><a class="header" href="#说明-1">说明</a></h3>
+<p>统一使用内存坐标系，以僵尸内存坐标为偏移中心</p>
+<ul>
+<li>
+<p>基准参考：前院1路进家普僵<code>x=-100, y=50</code></p>
+</li>
+<li>
+<p>僵尸y相关：</p>
+<ul>
+<li>特殊y：空中的气球<code>-30</code></li>
+<li>纵向偏移h（也称“高度”，纵向偏移越大，僵尸y越小）：
+<ul>
+<li>刚召出的伴舞<code>-150</code></li>
+<li>鸭子<code>-40</code></li>
+<li>水中的潜水<code>+10</code></li>
+<li>跳跳<code>+16</code>（跳跃中再<code>+9~+49</code>）</li>
+<li>雪橇推行<code>-10</code>乘坐中<code>+18</code>（上车中随时变化）</li>
+<li>空中的气球<code>+25</code></li>
+</ul>
+</li>
+<li>僵尸的实际y可以理解为：<code>y-h</code></li>
+</ul>
+</li>
+<li>
+<p>防御域x：</p>
+<ul>
+<li>橄榄<code>+50~+107</code></li>
+<li>潜水<code>+12~+74</code></li>
+<li>冰车/投篮<code>0~+153</code></li>
+<li>雪橇车（以为首者为准，相邻间距<code>50</code>）<code>-50~+225</code></li>
+<li>游泳的海豚<code>+20~+62</code></li>
+<li>矿工<code>+50~+78</code></li>
+<li>蹦极<code>-20~+90</code></li>
+<li>巨人<code>-17~+108</code></li>
+<li>其他<code>+36~+78</code></li>
+</ul>
+</li>
+<li>
+<p>防御域y：</p>
+<ul>
+<li>鸭子<code>0~+82</code></li>
+<li>水中的潜水<code>0~+130</code></li>
+<li>冰车/投篮<code>-13~+127</code></li>
+<li>骑行的海豚<code>0~+125</code></li>
+<li>行走的跳跳<code>+17~+132</code></li>
+<li>蹦极<code>+22~+116</code></li>
+<li>巨人<code>-38~+116</code></li>
+<li>其他<code>0~+115</code></li>
+</ul>
+</li>
+<li>
+<p>攻击域x：</p>
+<ul>
+<li>跳后撑杆、雪橇僵尸、矿工、小鬼：<code>+50~+70</code>啃咬</li>
+<li>奔跑的撑杆、骑行的海豚：<code>-29~+41</code>跳跃</li>
+<li>潜水<code>-5~+50</code>啃咬</li>
+<li>游泳的海豚<code>+30~60</code>啃咬</li>
+<li>冰车/投篮<code>+10~+143</code>碾压</li>
+<li>冰车<code>+150~</code>制冰</li>
+<li>未弃车的雪橇<code>+53~</code>判断冰道</li>
+<li>跳跃的跳跳<code>+10~+40</code>飞跃</li>
+<li>梯子<code>+10~+60</code>啃咬＆搭梯</li>
+<li>巨人<code>-30~+59</code>敲击</li>
+<li>其他<code>+20~+70</code>啃咬</li>
+</ul>
+</li>
+<li>
+<p>出生点：</p>
+<ul>
+<li>旗帜<code>800</code></li>
+<li>撑杆<code>870~879</code></li>
+<li>冰车<code>800~809</code></li>
+<li>雪橇<code>880~1030</code></li>
+<li>投篮<code>825~834</code></li>
+<li>巨人<code>845~854</code></li>
+<li>其他<code>780~859</code></li>
+</ul>
+</li>
+<li>
+<p>飞跃行为：</p>
+<ul>
+<li>撑杆跳到<code>目标植物x-70</code>处</li>
+<li>海豚跳到<code>起跳时自身x-150</code>处</li>
+<li>跳跳下次到达最低点于<code>目标植物x-60</code>处，以速度实现，从而受减速影响</li>
+</ul>
+</li>
+<li>
+<p>其他：</p>
+<ul>
+<li>刚召出的<code>左右伴舞x为舞王x±100</code>，<code>上下伴舞x=舞王x</code></li>
+<li>小丑爆炸为圆，对僵尸<code>(60,60),半径115</code>，对植物<code>(60,60),半径90</code></li>
+<li>矿工<code>x&lt;10</code>正常出土</li>
+<li>投篮车<code>x&lt;=650</code>进入可投篮模式</li>
+<li>巨人<code>x&lt;=400</code>不扔小鬼，<code>400&lt;x&lt;=500</code>时小鬼落点是巨人位置的单值不单调函数，<code>x&gt;500</code>时小鬼落点有很大的随机性而边界不单调</li>
+</ul>
+</li>
+</ul>
+<h2 id="僵尸模型图示例"><a class="header" href="#僵尸模型图示例">僵尸模型图示例</a></h2>
+<p>（图中为使图线清晰，将原地图调暗）</p>
+<p><img src="./%E5%83%B5%E5%B0%B8%E5%9D%90%E6%A0%87.jpg" alt="僵尸模型图示例" /></p>
+<h3 id="僵尸模型图注"><a class="header" href="#僵尸模型图注">僵尸模型图注</a></h3>
+<p>图中白线是僵尸基准轨迹，蓝十字是主坐标，绿十字是便移后的坐标，两坐标重叠时用淀色表示，可见部分僵尸坐标偏离僵尸基准轨迹的情况，其中Pogo的坐标存在一个运动范围，其上有横标记的为当前姿态的位置；</p>
+<p>蓝框为防御域的边框，红线为攻击域x，冰车的红箭头表示制冰区，雪橇的红十字为判断冰道点，盒子的红叉标识其爆炸圆心，由于圆心点与两坐标点重叠，用白色表示。</p>
+<h2 id="时间体系"><a class="header" href="#时间体系">时间体系</a></h2>
+<blockquote>
+<p>数据类型整数，单位cs（厘秒）</p>
+</blockquote>
+<ul>
+<li>植物时间：
+<ul>
+<li>樱桃、辣椒、夜间冰/核武：放置到生效<code>100</code></li>
+<li>土豆：
+<ul>
+<li>放置到破土<code>1500</code></li>
+<li>破土到生效<code>106</code>。</li>
+</ul>
+</li>
+<li>大嘴花：
+-开咬到命中<code>70</code>
+<ul>
+<li>空开咬间隔<code>107</code></li>
+<li>吃到再次开咬间隔<code>4340</code></li>
+</ul>
+</li>
+<li>墓碑吞噬者：吞碑耗时<code>448~471</code>(均匀随机)</li>
+<li>冰：
+<ul>
+<li>减速时间<code>2000</code></li>
+<li>冻结水面和云朵时间<code>300</code></li>
+<li>一次冰冻（僵尸未减速）冻结时间<code>400~600</code></li>
+<li>二次冰冻（僵尸已减速）冻结时间<code>300~400</code></li>
+</ul>
+</li>
+<li>窝瓜：
+<ul>
+<li>触发到起跳<code>126</code>（起跳时若原目标消失，重新索敌）</li>
+<li>触发到命中<code>182</code></li>
+</ul>
+</li>
+<li>咖啡豆：
+<ul>
+<li>放下到开始唤醒<code>100</code>
+<ul>
+<li>若小偷开始擒拿在中间这段时间，则偷走咖啡豆而蘑菇仍将正常醒来</li>
+</ul>
+</li>
+<li>放下到完成唤醒<code>199</code>
+<ul>
+<li>但咖啡豆编号小于蘑菇时，唤醒的同一帧会结算蘑菇（变相缩短1cs），否则下一帧结算。因此，白昼点冰到生效为<code>298/299</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>投手植物：见 https://tieba.baidu.com/p/6761145155</li>
+<li>忧郁菇：
+<ul>
+<li>开始开火后<code>73</code>命中第一发</li>
+<li>此后每<code>28</code>命中一发，直到4发完成</li>
+</ul>
+</li>
+<li>玉米炮：
+<ul>
+<li>释放到分离<code>205</code></li>
+<li>若炸水路，释放到命中固定<code>378</code></li>
+<li>若炸陆路，释放到命中<code>373~376</code>
+<ul>
+<li><code>373</code>起，若本行爆炸范围内无僵尸则延迟，至多延迟<code>3</code></li>
+</ul>
+</li>
+<li>释放到完成装填<code>3475</code></li>
+</ul>
+</li>
+<li>模仿者：
+<ul>
+<li>放下到完成模仿<code>320</code>
+<ul>
+<li>但模仿者编号小于变身后植物编号时，变身完毕的同一帧会结算变身后植物（变相缩短1cs），否则下一帧才结算。因此，夜间模仿冰放置到生效为<code>419/420</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>僵尸时间：（受减速的减速后翻倍）
+<ul>
+<li>舞王：
+<ul>
+<li>出生滑步时间<code>300~311</code>，滑步期间速度不受减速</li>
+<li>滑步完毕（或触碰）到召唤<code>42</code>（受减速）</li>
+<li>伴舞升起用时<code>150</code></li>
+<li>开始召唤到收手<code>200</code></li>
+<li>触碰判定跟啃食判定结算周期相同</li>
+</ul>
+</li>
+<li>小丑：开盒到爆炸<code>110</code></li>
+<li>跳跳：一个跳跃周期<code>80</code></li>
+<li>矿工：
+<ul>
+<li>开始出土到晕<code>130</code></li>
+<li>晕时间<code>350</code>（受减速）</li>
+</ul>
+</li>
+<li>小偷：
+<ul>
+<li>刷新到小偷可被炮炸<code>394</code>（受冰、可被灰烬炸为<code>395</code>）</li>
+<li>等待<code>300</code></li>
+<li>开始偷取到不可被攻击<code>63</code>（受减速）</li>
+</ul>
+</li>
+<li>投石车：
+<ul>
+<li>攻击间隔<code>300</code></li>
+<li>转把手时间<code>73</code>（受减速）</li>
+</ul>
+</li>
+<li>巨人（全受减速）：
+<ul>
+<li>开敲到命中<code>134</code>（在命中瞬间所在的1cs内冻结或黄油可消解此次敲击）</li>
+<li>敲收手用时<code>73</code></li>
+<li>开始扔小鬼到小鬼出生<code>105</code></li>
+<li>扔收手用时<code>37</code></li>
+</ul>
+</li>
+<li>连续伤害：
+<ul>
+<li>僵尸啃植物<code>每4cs</code>结算一次，每次伤害<code>4HP</code></li>
+<li>减速后为<code>每8cs</code>结算一次，每次伤害<code>4HP</code>
+<ul>
+<li>以上时间基于僵尸存在时间，例如原速僵尸出生后第4、8、12……cs结算啃食</li>
+</ul>
+</li>
+<li>雪橇判断无冰道自发损害<code>6HP/次</code>*<code>1次/1cs</code>，会发生伤害转移</li>
+<li>僵尸本体剩余HP低于临界自发损害，非匀速，均速还因品种而异</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="速度体系"><a class="header" href="#速度体系">速度体系</a></h2>
+<blockquote>
+<p>见RND Readme、速度解析贴（https://tieba.baidu.com/p/7290751385 ）</p>
+</blockquote>
+<ul>
+<li>小丑速度：小丑、橄榄、奔跑的撑杆、挖掘的矿工、奔跑的潜水的相对速度，参考值<code>0.66-0.68</code></li>
+<li>梯子速度：有梯的梯子、倭瓜僵尸的相对速度，参考值<code>0.79-0.81</code></li>
+<li>海豚速度：海豚、愤怒的报纸的相对速度，参考值<code>0.89-0.91</code></li>
+<li>普僵速度：大部分僵尸的相对速度，参考值<code>0.23-0.37</code></li>
+</ul>
+<p>附：植物受啃、强化地刺扎车和受敲，导致<code>剩余HP&lt;=0</code>时即消失；受子弹、篮球，则要导致<code>剩余HP&lt;0</code>才消失。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

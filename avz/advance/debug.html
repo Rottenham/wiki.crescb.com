@@ -1,0 +1,307 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>运行调试 - AvZ 键控教程 by 向量cwl</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">返回首页</a></li><li class="chapter-item expanded affix "><a href="../index.html">欢迎 👋</a></li><li class="chapter-item expanded affix "><a href="../catalogue.html">目录</a></li><li class="chapter-item expanded affix "><li class="part-title">基础</li><li class="chapter-item expanded "><a href="../basic/start.html"><strong aria-hidden="true">1.</strong> 起步</a></li><li class="chapter-item expanded "><a href="../basic/namespace.html"><strong aria-hidden="true">2.</strong> 名称空间</a></li><li class="chapter-item expanded "><a href="../basic/multiple_effective.html"><strong aria-hidden="true">3.</strong> 多次生效(挂机函数)</a></li><li class="chapter-item expanded "><a href="../basic/card.html"><strong aria-hidden="true">4.</strong> 卡片操作</a></li><li class="chapter-item expanded "><a href="../basic/time_rule.html"><strong aria-hidden="true">5.</strong> 时间设定</a></li><li class="chapter-item expanded "><a href="../basic/ice_filler.html"><strong aria-hidden="true">6.</strong> 存冰类</a></li><li class="chapter-item expanded "><a href="../basic/ice3_and_shovel.html"><strong aria-hidden="true">7.</strong> 冰三和铲除函数</a></li><li class="chapter-item expanded "><a href="../basic/plant_fixer.html"><strong aria-hidden="true">8.</strong> 修补植物类</a></li><li class="chapter-item expanded "><a href="../basic/pao_operator_1.html"><strong aria-hidden="true">9.</strong> 炮操作类——初步</a></li><li class="chapter-item expanded "><a href="../basic/pao_operator_2.html"><strong aria-hidden="true">10.</strong> 炮操作类——多炮列表</a></li><li class="chapter-item expanded "><a href="../basic/pao_operator_3.html"><strong aria-hidden="true">11.</strong> 炮操作类——铲种</a></li><li class="chapter-item expanded "><a href="../basic/pao_operator_4.html"><strong aria-hidden="true">12.</strong> 炮操作类——炮序模式</a></li><li class="chapter-item expanded "><a href="../basic/pao_operator_5.html"><strong aria-hidden="true">13.</strong> 炮操作类——炮序排布</a></li><li class="chapter-item expanded "><a href="../basic/wave_set.html"><strong aria-hidden="true">14.</strong> 波长设定与非定态</a></li><li class="chapter-item expanded "><a href="../basic/key_connect.html"><strong aria-hidden="true">15.</strong> 按键绑定</a></li><li class="chapter-item expanded "><a href="../basic/set_zombie.html"><strong aria-hidden="true">16.</strong> 出怪设置与女仆秘籍</a></li><li class="chapter-item expanded "><a href="../basic/advance_pause.html"><strong aria-hidden="true">17.</strong> 高级暂停</a></li><li class="chapter-item expanded "><a href="../basic/skip_tick.html"><strong aria-hidden="true">18.</strong> 跳帧</a></li><li class="chapter-item expanded affix "><li class="part-title">进阶</li><li class="chapter-item expanded "><a href="../advance/time_operate.html"><strong aria-hidden="true">19.</strong> 操作队列</a></li><li class="chapter-item expanded "><a href="../advance/wait_until.html"><strong aria-hidden="true">20.</strong> 阻塞函数</a></li><li class="chapter-item expanded "><a href="../advance/function_attribute.html"><strong aria-hidden="true">21.</strong> 函数属性</a></li><li class="chapter-item expanded "><a href="../advance/insert_operation.html"><strong aria-hidden="true">22.</strong> 动态操作插入</a></li><li class="chapter-item expanded "><a href="../advance/transform_attribute.html"><strong aria-hidden="true">23.</strong> 属性转换</a></li><li class="chapter-item expanded "><a href="../advance/debug.html" class="active"><strong aria-hidden="true">24.</strong> 运行调试</a></li><li class="chapter-item expanded "><a href="../advance/smart.html"><strong aria-hidden="true">25.</strong> &quot;智能&quot;操作</a></li><li class="chapter-item expanded "><a href="../advance/iterator.html"><strong aria-hidden="true">26.</strong> 对象过滤迭代器</a></li><li class="chapter-item expanded "><a href="../advance/memory_manage.html"><strong aria-hidden="true">27.</strong> 变量内存管理</a></li><li class="chapter-item expanded "><a href="../advance/extension.html"><strong aria-hidden="true">28.</strong> 插件</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">AvZ 键控教程 by 向量cwl</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!--
+ * @Coding: utf-8
+ * @Author: vector-wlc
+ * @Date: 2021-09-25 21:30:42
+ * @Description: 
+-->
+<h1 id="运行调试"><a class="header" href="#运行调试">运行调试</a></h1>
+<p>掌握调试方法对于我们快速找出代码中的错误至关重要，在视频教程中，我们介绍了如何读取 C++ 编译器给我们提示的静态代码错误，那说到这里，什么是静态错误呢？静态错误其实就是编译器将我们所写的代码编译成动态库或可执行程序时，编译器发现了我们的代码有一些非常简单的写法错误，比如结尾漏写分号，将 {} 错写成 () 等等，其实静态错误就是不需要运行程序就会发现的错误，这类错误由于编译器会给我们充分的信息提示，因此比较好解决，占用的时间也是比较少的，但是还有一种错误，就是我们的脚本没有语法错误，并且可以执行时发生了一些不符合我们预期的错误，比如该放的炮没放出来，该用的卡没用，这类错误就属于运行时错误，一般耗费我们大量时间的就是这类错误，因为这类错误基本没有辅助工具提示我们哪里错了，只能通过我们不断的用眼睛扫描代码去寻找，但是一些错误是非常隐蔽的，我们可能把眼睛扫瞎了都找不到错误在哪里，为了方便大家找出这类错误，AvZ 提供了断点调试和调试函数。</p>
+<h2 id="断点调试"><a class="header" href="#断点调试">断点调试</a></h2>
+<p>断点的意思就是程序运行到断点处就会阻塞停滞，此时程序会根据使用者按下的按键进行运行。</p>
+<p>对于 AvZ 来说，<strong> 如果想要使用断点调试功能，必须保证植物大战僵尸对应的可执行程序的路径为全英文，不能含有中文和特殊字符！！！x3 </strong>，断点调试功能使用如下：</p>
+<p>1.我们首先在脚本想要调试的函数打一个断点：</p>
+<p><img src="../img/debug_7.jpg" alt="debug_7" /></p>
+<p>打断点操作非常简单，在行数左边左击一下即可。上图就是在第 30 行打了一个断点。</p>
+<p>2.按下键盘上的 F5 键，<strong> 注意有些笔记本电脑的 F5 键按下去没有反应，此时需要按下 Fn + F5 键 </strong>，稍等片刻，当 VSCode 下面的蓝条（状态栏）变为橙色的时候，就意味着调试开始了。此时进入游戏的战斗界面，脚本开始运行，但是当程序一旦运行到断点处，程序就会停下来，具体现象就是：</p>
+<p><img src="../img/debug_8.jpg" alt="debug_8" /></p>
+<ul>
+<li>
+<p>VSCode 打断点的那一行出现了一行显眼的橙色，这表示程序停在了哪条代码上</p>
+</li>
+<li>
+<p>PvZ 此时怎么点都无反应，因为调试器停滞了 PvZ 的所有线程</p>
+</li>
+</ul>
+<p>此时我们需要知道如何调试器呈现给我们的信息，首先看 VSCode 的左上方，这个是内存显示区，他会把当前变量的内存值显示出来，这点对于调试非常重要，比如现在脚本中的 wave 值为 1。接下来看左下方，可以看到 PvZ 程序的所有线程的状态，可以看到现在所有线程的状态都为已暂停，因为现在正在进行断点调试，这就是为啥 PvZ 现在咋点都不反应的原因。</p>
+<p>接下来需要了解几个快捷键操作：</p>
+<ul>
+<li>
+<p>F5 使代码直接运行到下一个断点，如果下面没有断点就会使得脚本完全执行完毕。</p>
+</li>
+<li>
+<p>F10 运行当前语句，如果当前语句中有函数调用也会直接把函数执行完毕，然后在下一行语句继续停滞程序。</p>
+</li>
+<li>
+<p>F11 运行当前语句，如果当前语句中有函数调用并且函数的代码被 Debug 模式编译，会跳进函数的里面停滞程序。</p>
+</li>
+</ul>
+<p>其实废了这么多话，就是 F10 按下去不进入函数直接把函数运行完毕，F11 按下去会进入函数里面执行。AvZ 的断点调试体验与正常程序的断点调试体验没有什么差别，用好断点调试可以做到事半功倍的效果。</p>
+<p>按下 F10 的效果：</p>
+<p><img src="../img/debug_9.jpg" alt="debug_9" /></p>
+<h2 id="showerror"><a class="header" href="#showerror"><code>ShowError</code></a></h2>
+<pre><code class="language-C++">#include &quot;avz.h&quot;
+
+void Script()
+{
+    SetTime(-599, 1);
+    AvZ::ShowError(&quot;这是我写出来的第一个 AvZ 调试窗口，开心！&quot;);
+}
+</code></pre>
+<p>注意 <code>ShowError</code> 的属性为 In Queue，因此使用上述代码，在游戏运行到（-599，1）时，会弹出来这样一个窗口：</p>
+<p><img src="../img/debug_1.jpg" alt="debug_1" /></p>
+<p>那大家可能说，这个东西有啥用，不就是弹出来个窗口吗？看起来好像确实没啥用，但是仔细一想，如果我们在脚本里没有按照预期运行的操作之前使用这条语句就可以知道到底是操作没有录入操作队列还是操作录入了操作队列而 AvZ 没有正常执行操作，例如：</p>
+<pre><code class="language-C++">#include &quot;avz.h&quot;
+
+void Script()
+{
+    SetTime(-599, 1);
+    AvZ::ShowError(&quot;这是我写出来的第一个 AvZ 调试窗口，开心！&quot;);
+    pao_operator.pao(2, 9);
+}
+</code></pre>
+<p>比如我们第一次运行脚本发现在（-599，1）这个时间点并没有放炮，那我们就可以在他前面放一个 <code>ShowError</code>，如果我们发现弹出来了这个窗口，就说明 pao 这个操作大概率被录入了操作队列，因此问题出在操作队列的执行上，这时候大概率是框架的 BUG，就需要尽快的向我反馈；如果没有弹出窗口，那说明这一块的代码压根就没有执行，这个时候就需要看看自己写的代码是否被 if 条件屏蔽了等等。当然 <code>ShowError</code> 可以放可变参数，什么意思呢？例如下面的代码：</p>
+<pre><code class="language-C++">#include &quot;avz.h&quot;
+
+void Script()
+{
+    SetTime(-599, 1);
+    AvZ::ShowError(&quot;代码出现在：# 文件中， # 函数里， 第 # 行，&quot;, __FILE__, __func__, __LINE__);
+}
+</code></pre>
+<p>就会弹出下面的窗口：</p>
+<p><img src="../img/debug_2.jpg" alt="debug_2" /></p>
+<p>这个窗口显示出来了出错的文件，出错的函数以及出错的行数，直接定位了错误的位置，大大方便了我们找窗口从哪弹出来的，当然上述代码中用到了一些宏，大家只要照葫芦画瓢使用就行，不用了解其具体含义，这里需要说明的是，双引号中内容为 # 的符号将会被双引号后面的内容所替换，这部分读者使用过 C 语言中的 printf 函数会非常容易理解，当然，不知道 printf 函数也没关系，其实只要掌握最开始的那种调用形式就可以应付绝大多数调试情况。</p>
+<p>除了 <code>ShowError</code> 外，还有一个 <code>ShowErrorNotInQueue</code>，其实这个函数大家应该非常清楚，其实就是 <code>ShowError</code> 不会录入操作队列版，就是立即执行版，除此之外，使用方法与 <code>ShowError</code> 完全相同，在此不在赘述。</p>
+<h2 id="showqueue"><a class="header" href="#showqueue"><code>ShowQueue</code></a></h2>
+<p>见名知意，就是显示操作队列内容的函数，这个函数十分好用，它的属性为 In Queue。</p>
+<pre><code class="language-C++">SetTime(-599, 1);
+ShowQueue({1, 2});
+</code></pre>
+<p>上面的代码就是在（-599，1）这个时间点显示出第1、2波操作队列中当前时间点正在执行或未被执行的内容，结果如下</p>
+<p><img src="../img/debug_3.jpg" alt="debug_3" /></p>
+<p>如果我们在（-95，1）这个时间点调用结果如下</p>
+<pre><code class="language-C++">SetTime(-95, 1);
+ShowQueue({1, 2});
+</code></pre>
+<p><img src="../img/debug_4.jpg" alt="debug_4" /></p>
+<p>看，在（-599，1）时间点的操作将不会显示出来，因为操作队列执行过的操作已经出队了，那这个函数对调试有啥作用呢？比如我们手贱把下面代码中的wave 写成了 1，</p>
+<pre><code class="language-C++">for (int wave = 1; wave &lt; 21; ++wave) {
+    SetTime(-95, wave);
+    pao_operator.pao({{2, 9}, {5, 9}});
+}
+</code></pre>
+<p>形成了下面的代码</p>
+<pre><code class="language-C++">for (int wave = 1; wave &lt; 21; ++wave) {
+    SetTime(-95, 1);
+    pao_operator.pao({{2, 9}, {5, 9}});
+}
+</code></pre>
+<p>那么 AvZ 在（-95，1）这个时间点肯定会爆出一大堆炮不够用的错误，然后我们一脸懵逼，怎么可能，这不可能！肯定是 AvZ 框架出 BUG 了，绝对不是我的锅（/滑稽），但是如果这个时候我们使用 <code>showQueue</code> 的话，就会明显看出错误了</p>
+<pre><code class="language-C++">SetTime(-95, 1);
+ShowQueue({1, 2});
+</code></pre>
+<p><img src="../img/debug_5.jpg" alt="debug_5" /></p>
+<p>我们会惊喜的发现第一波的操作贼多，然而第二波的操作竟然为 none ！！！这个时候我们就会立即意识到自己哪些地方写错了。当然 <code>ShowQueue</code> 函数的参数形式就是填的是啥数字他就会显示数字波的操作，例如 <code>ShowQueue({9})</code> 就会显示第九波的操作  <code>ShowQueue({10, 11})</code> 就是显示第 10、11 波的操作。</p>
+<h2 id="调试模式设定"><a class="header" href="#调试模式设定">调试模式设定 </a></h2>
+<p>AvZ 的调试不仅仅可以将结果以窗口的形式的方式弹出来，还可以进行一定的设置</p>
+<pre><code class="language-C++">// 报错将会有弹窗弹出
+AvZ::SetErrorMode(AvZ::POP_WINDOW);
+
+// 报错将会显示在控制台
+AvZ::SetErrorMode(AvZ::CONSOLE);
+
+// 取消报错功能
+AvZ::SetErrorMode(AvZ::NONE);
+</code></pre>
+<p>比如下面代码：</p>
+<pre><code class="language-C++">#include &quot;avz.h&quot;
+
+void Script()
+{
+    AvZ::SetErrorMode(AvZ::CONSOLE);
+    AvZ::SetTime(-599, 1);
+    AvZ::ShowError(&quot;AvZ Debug In Console&quot;);
+}
+</code></pre>
+<p>运行效果如下：</p>
+<p><img src="../img/debug_6.jpg" alt="debug_6" /></p>
+<p>将模式设置为控制台的好处就是报错时并不会阻塞游戏的运行。</p>
+<p><a href="./transform_attribute.html">上一篇 属性转换</a></p>
+<p><a href="../catalogue.html">目录</a></p>
+<p><a href="./smart.html">下一篇 &quot;智能&quot;操作</a></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../advance/transform_attribute.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../advance/smart.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../advance/transform_attribute.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../advance/smart.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

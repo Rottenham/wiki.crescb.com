@@ -1,0 +1,233 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>阻塞函数 - AvZ 键控教程 by 向量cwl</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">返回首页</a></li><li class="chapter-item expanded affix "><a href="../index.html">欢迎 👋</a></li><li class="chapter-item expanded affix "><a href="../catalogue.html">目录</a></li><li class="chapter-item expanded affix "><li class="part-title">基础</li><li class="chapter-item expanded "><a href="../basic/start.html"><strong aria-hidden="true">1.</strong> 起步</a></li><li class="chapter-item expanded "><a href="../basic/namespace.html"><strong aria-hidden="true">2.</strong> 名称空间</a></li><li class="chapter-item expanded "><a href="../basic/multiple_effective.html"><strong aria-hidden="true">3.</strong> 多次生效(挂机函数)</a></li><li class="chapter-item expanded "><a href="../basic/card.html"><strong aria-hidden="true">4.</strong> 卡片操作</a></li><li class="chapter-item expanded "><a href="../basic/time_rule.html"><strong aria-hidden="true">5.</strong> 时间设定</a></li><li class="chapter-item expanded "><a href="../basic/ice_filler.html"><strong aria-hidden="true">6.</strong> 存冰类</a></li><li class="chapter-item expanded "><a href="../basic/ice3_and_shovel.html"><strong aria-hidden="true">7.</strong> 冰三和铲除函数</a></li><li class="chapter-item expanded "><a href="../basic/plant_fixer.html"><strong aria-hidden="true">8.</strong> 修补植物类</a></li><li class="chapter-item expanded "><a href="../basic/pao_operator_1.html"><strong aria-hidden="true">9.</strong> 炮操作类——初步</a></li><li class="chapter-item expanded "><a href="../basic/pao_operator_2.html"><strong aria-hidden="true">10.</strong> 炮操作类——多炮列表</a></li><li class="chapter-item expanded "><a href="../basic/pao_operator_3.html"><strong aria-hidden="true">11.</strong> 炮操作类——铲种</a></li><li class="chapter-item expanded "><a href="../basic/pao_operator_4.html"><strong aria-hidden="true">12.</strong> 炮操作类——炮序模式</a></li><li class="chapter-item expanded "><a href="../basic/pao_operator_5.html"><strong aria-hidden="true">13.</strong> 炮操作类——炮序排布</a></li><li class="chapter-item expanded "><a href="../basic/wave_set.html"><strong aria-hidden="true">14.</strong> 波长设定与非定态</a></li><li class="chapter-item expanded "><a href="../basic/key_connect.html"><strong aria-hidden="true">15.</strong> 按键绑定</a></li><li class="chapter-item expanded "><a href="../basic/set_zombie.html"><strong aria-hidden="true">16.</strong> 出怪设置与女仆秘籍</a></li><li class="chapter-item expanded "><a href="../basic/advance_pause.html"><strong aria-hidden="true">17.</strong> 高级暂停</a></li><li class="chapter-item expanded "><a href="../basic/skip_tick.html"><strong aria-hidden="true">18.</strong> 跳帧</a></li><li class="chapter-item expanded affix "><li class="part-title">进阶</li><li class="chapter-item expanded "><a href="../advance/time_operate.html"><strong aria-hidden="true">19.</strong> 操作队列</a></li><li class="chapter-item expanded "><a href="../advance/wait_until.html" class="active"><strong aria-hidden="true">20.</strong> 阻塞函数</a></li><li class="chapter-item expanded "><a href="../advance/function_attribute.html"><strong aria-hidden="true">21.</strong> 函数属性</a></li><li class="chapter-item expanded "><a href="../advance/insert_operation.html"><strong aria-hidden="true">22.</strong> 动态操作插入</a></li><li class="chapter-item expanded "><a href="../advance/transform_attribute.html"><strong aria-hidden="true">23.</strong> 属性转换</a></li><li class="chapter-item expanded "><a href="../advance/debug.html"><strong aria-hidden="true">24.</strong> 运行调试</a></li><li class="chapter-item expanded "><a href="../advance/smart.html"><strong aria-hidden="true">25.</strong> &quot;智能&quot;操作</a></li><li class="chapter-item expanded "><a href="../advance/iterator.html"><strong aria-hidden="true">26.</strong> 对象过滤迭代器</a></li><li class="chapter-item expanded "><a href="../advance/memory_manage.html"><strong aria-hidden="true">27.</strong> 变量内存管理</a></li><li class="chapter-item expanded "><a href="../advance/extension.html"><strong aria-hidden="true">28.</strong> 插件</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">AvZ 键控教程 by 向量cwl</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!--
+ * @Coding: utf-8
+ * @Author: vector-wlc
+ * @Date: 2021-09-25 19:50:28
+ * @Description: 
+-->
+<h1 id="阻塞函数"><a class="header" href="#阻塞函数">阻塞函数</a></h1>
+<p>上文中我们提到过在 AvZ 中由 Script 函数里的内容转成对应的队列是在一瞬间完成的，在我们目前看来，这种方式带来的好处就是时间点可以随意书写了，但是一个巨大的缺点就是操作被写死了，我们貌似无法在脚本运行过程中添加或者删除操作，这对无炮或者炮阵的一些&quot;智能&quot;判断操作来说简直就是灭顶之灾。而阻塞函数 WaitUntil 便是解决这一问题的利器。</p>
+<p>为了说明阻塞函数的作用，我们首先展示一种在 AvZ 中看似非常正确的写法</p>
+<pre><code class="language-C++">SetTime(200, 1);
+pao_operator.pao({{2, 9}, {5, 9}});
+SetTime(200 + 373 + 1);
+if(AvZ::GetMainObject()-&gt;refreshCountdown() &lt;= 200){
+    Card(XRK_1, 1, 1); // 刷新了种卡
+}else{
+    pao_operator.pao(2, 9); // 未刷新放炮
+}
+</code></pre>
+<p>上述内容大概意思就是如果炮激活了刷新就放一张卡，如果没有就放一门炮，这看着非常正常，没啥毛病，但是其实是大错特错，因为在 AvZ 中的读内存函数是无法被录入队列的，也就是说 AvZ::GetMainObject()-&gt;refreshCountdown() (读内存相关内容会在后续教程中介绍，此处只是引用一下，大家只要能够看懂大概意思就好) 这个读取僵尸刷新倒计时的代码会在录入过程中被执行完成，而不会等到游戏时间进行到 (200 + 373 + 1) 再执行，那么此处我们应该怎么写呢？下面说明正确的做法</p>
+<pre><code class="language-C++">SetTime(200, 1);
+pao_operator.pao({{2, 9}, {5, 9}});
+WaitUntil(200 + 373 + 1); // 阻塞
+if(AvZ::GetMainObject()-&gt;refreshCountdown() &lt;= 200){
+    Card(XRK_1, 1, 1); // 刷新了种卡
+}else{
+    pao_operator.pao(2, 9); // 未刷新放炮
+}
+</code></pre>
+<p><code>WaitUntil</code> 顾名思义，等待直到，意思就是说这条语句下面的代码将会一直处于等待状态，直到游戏时间到了才会运行，这个函数的作用和 PvZ / CvZ 中的 <code>Prejudge</code> 一模一样，但是其精准度仍为100%，因此使用这个函数上面的代码的运行结果就会和我们的预期一样，如果炮激活了刷新就放一张卡，如果没有就放一门炮。</p>
+<p>当然，聪明的你肯定发现了 <code>WaitUntil</code> 一个巨大缺点，就是我们不能随心所欲的书写时间点了，例如下面的代码是会稳定报错的。</p>
+<pre><code class="language-C++">SetTime(200, 1);
+pao_operator.pao({{2, 9}, {5, 9}});
+WaitUntil(200 + 373 + 1);
+Card(XRK_1, 1, 1);
+SetTime(-400, 1);
+Card(XRK_1, 1, 1);
+
+</code></pre>
+<p>原因很简单，<code>WaitUntil</code> 会阻塞他下方的代码，我们来用队列直观的说明其运行过程，时间点（200 ，1）之前的队列</p>
+<table><thead><tr><th>队列名</th><th>队列内容</th></tr></thead><tbody>
+<tr><td>队列1</td><td>(200 pao)</td></tr>
+</tbody></table>
+<p>注意此时 （-400，1）这个时间点的操作并没有进入队列，这是因为被阻塞了。</p>
+<p>在（200 ，1）之后（200 + 373 + 1，1）之前的队列</p>
+<table><thead><tr><th>队列名</th><th>队列内容</th></tr></thead><tbody>
+<tr><td>队列1</td><td>空</td></tr>
+</tbody></table>
+<p>在 （200 + 373 + 1，1）时的队列</p>
+<table><thead><tr><th>队列名</th><th>队列内容</th></tr></thead><tbody>
+<tr><td>队列1</td><td>(-400 card) (200 + 373 + 1 card)</td></tr>
+</tbody></table>
+<p>由于时间点已经到达，阻塞函数释放阻塞，其下面的代码得以运行，所以 -400 <code>card</code> 这个操作就进入了操作队列，但是很明显（-400，1）这个时间点早就过去了，所以 AvZ 此时会报错（-400，1）已经过去，这就是使用阻塞函数 <code>WaitUntil</code> 导致的问题。</p>
+<p>总结：阻塞函数会一直阻塞语句的运行知道时间点到达，<strong>因此请确保时间顺序书写正确，在阻塞时间点之前的操作一定要写在阻塞函数之前</strong>，不然就会报错。</p>
+<p>读到这里大家可能会有一个问题，就是读取内存函数为啥不能录入队列，为啥 <code>pao</code> <code>card</code> 这样的函数就可以进入操作队列，这个问题就是下篇文章我们即将要讨论的——AvZ 函数属性</p>
+<p><a href="./time_operate.html">上一篇 操作队列</a></p>
+<p><a href="../catalogue.html">目录</a></p>
+<p><a href="./function_attribute.html">下一篇 函数属性</a></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../advance/time_operate.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../advance/function_attribute.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../advance/time_operate.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../advance/function_attribute.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

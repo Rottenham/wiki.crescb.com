@@ -1,0 +1,193 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>一张炽热阵图 - 植圈同人文库</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">返回首页</a></li><li class="chapter-item expanded affix "><a href="index.html">欢迎 👋</a></li><li class="chapter-item expanded affix "><a href="ice.html">生活在冰骨架上</a></li><li class="chapter-item expanded affix "><a href="bluegreen.html">蓝绿冷战</a></li><li class="chapter-item expanded affix "><a href="jokes.html">四年了，你吧让人眼前一亮的超多炮笑话不多啊</a></li><li class="chapter-item expanded affix "><a href="hotgod.html">炽热为什么是神？</a></li><li class="chapter-item expanded affix "><a href="jd12.html">PE.经典十二炮</a></li><li class="chapter-item expanded affix "><a href="hot.html" class="active">一张炽热阵图</a></li><li class="chapter-item expanded affix "><a href="lantern.html">绿字为什么是神？</a></li><li class="chapter-item expanded affix "><a href="hometown.html">灯笼尧帝之事</a></li><li class="chapter-item expanded affix "><a href="eat.html">我吃下杯杯的最后一块肝脏时，少年乙刚好回来</a></li><li class="chapter-item expanded affix "><a href="shmoby.html">雪漠北为什么是神</a></li><li class="chapter-item expanded affix "><a href="ax.html">阿X正传</a></li><li class="chapter-item expanded affix "><a href="mental.html">回B站三天，雪漠北治好了我的精神内耗</a></li><li class="chapter-item expanded affix "><a href="hotible.html">炽热语录</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">植圈同人文库</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="一张炽热阵图"><a class="header" href="#一张炽热阵图">一张炽热阵图</a></h1>
+<blockquote>
+<p>作者：爱恋小遥</p>
+<p>收录日期：2022-08-05</p>
+</blockquote>
+<p>　　在初入植吧的第一个月，我第一次决定尝试造阵。点开网页布阵器，把炽热阵图打印出来，贴在我的显示器旁，便开始了。</p>
+<p>　　时间流逝的飞快。等到了日落时刻。为了防止丢失，也为了造阵方便，我将炽热的阵图轻轻取下，放在胸前。</p>
+<p>　　不久，造阵遇到了最大的瓶颈，大脑一片空白，我想大声呼喊，给自己加油鼓劲。还没等喊出口，只觉得眼前一黑，便落入思绪的深渊之中。醒来的时候，发现自己被一块巨石（代指节操）挡住了。南瓜，曾都有不同程度的损伤。雪叔美照和灯笼指导都无影无踪。我失败了，在无人突破的命题之间艰难挣扎着。直到第三天中午，我才找到一个新的交流群，急忙申请进入。</p>
+<p>　　我向群主（尧帝）说明了自己的处境。尧帝听懂了我的话，却把双手一摊，表示一脸的无奈，说：“我讲究平等交易，我给你思路，你能给我什么呢?”</p>
+<p>　　此时我身无分文，只好给出新造的烂阵。尧帝接过去看了看，耸了耸鼻子，狂呕不止，还给了我。突然，尧帝眼里闪出亮光，他用手指着我怀里上的炽热阵图，惊奇地问：“那是什么?”</p>
+<p>　　我犹豫了一下，把炽热阵图慢慢从怀里展开。这面打印细致的炽热阵图，经过思绪的冲洗，依然是那么鲜艳！（注意这个叹号，等下要考）</p>
+<p>　　尧帝拍了拍我的肩膀，告诉我可以用这个阵图换他有的一切。</p>
+<p>　　我愣了一下，然后久久地凝视着手中的炽热阵图。</p>
+<p>　　尧帝转身拿起几瓶瞎起的洗澡水，见我没有反应，以为我嫌少，又拿起几只瞎起用过的牙刷。</p>
+<p>　　“可以吗?交换吧。”尧帝冲着我打手势。我摇摇头，吃力带着烂阵，拿着鲜艳的炽热阵图，趔趔趄趄地继续闭门造车。突然，我脑子嗡的一下，就什么也不知道了。</p>
+<p>　　我醒来的时候，发现已经是尧群群主了，身边站着的就是爱恋小遥。他见我醒来，冲我竖起大拇指，说：“安心当群主，其他不用操心。”</p>
+<p>　　这时我才发现，在我床头的花瓶里，有几张雪叔的自拍照片，花丛中插着那张心爱的炽热阵图。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="jd12.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="lantern.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="jd12.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="lantern.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>
